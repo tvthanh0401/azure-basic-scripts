@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Multi-Tab Web Page</title>
+	<style>
+		.tab {
+			overflow: hidden;
+			border: 1px solid #ccc;
+			background-color: #f1f1f1;
+		}
+		.tab button {
+			background-color: inherit;
+			float: left;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			padding: 14px 16px;
+			transition: 0.3s;
+		}
+		.tab button:hover {
+			background-color: #ddd;
+		}
+		.tab button.active {
+			background-color: #ccc;
+		}
+		.tabcontent {
+			display: none;
+			padding: 6px 12px;
+			border: 1px solid #ccc;
+			border-top: none;
+		}
+        table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 20px;
+			table-layout: fixed; /* Use fixed table layout to make all tables the same size */
+		}
+		table th {
+			background-color: #f2f2f2;
+			font-weight: bold;
+			padding: 10px;
+			text-align: left;
+			border: 1px solid #ddd;
+			white-space: nowrap; /* Prevent table cells from wrapping */
+		}
+		table td {
+			padding: 10px;
+			border: 1px solid #ddd;
+			overflow: hidden; /* Add ellipsis to overflowed cells */
+			text-overflow: ellipsis;
+			white-space: nowrap; /* Prevent table cells from wrapping */
+		}
+		table tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+		table tr:hover {
+			background-color: #f5f5f5;
+		}
+	</style>
+</head>
+<body>
+	<h1>Multi-Tab Web Page</h1>
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'Tab1')">Tab 1</button>
+		<button class="tablinks" onclick="openTab(event, 'Tab2')">Tab 2</button>
+		<button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button>
+	</div>
+	<div id="Tab1" class="tabcontent">
+		<h2>Table 1</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Google</td>
+					<td><a href="https://www.google.com/">https://www.google.com/</a></td>
+				</tr>
+				<tr>
+					<td>Facebook</td>
+					<td><a href="https://www.facebook.com/">https://www.facebook.com/</a></td>
+				</tr>
+				<tr>
+					<td>Twitter</td>
+					<td><a href="https://twitter.com/">https://twitter.com/</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="Tab2" class="tabcontent">
+		<h2>Table 2</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>YouTube</td>
+					<td><a href="https://www.youtube.com/">https://www.youtube.com/</a></td>
+				</tr>
+				<tr>
+					<td>Instagram</td>
+					<td><a href="https://www.instagram.com/">https://www.instagram.com/</a></td>
+				</tr>
+				<tr>
+					<td>LinkedIn</td>
+					<td><a href="https://www.linkedin.com/">https://www.linkedin.com/</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="Tab3" class="tabcontent">
+		<h2>Table 3</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>GitHub</td>
+					<td><a href="https://github.com/">https://github.com/</a></td>
+				</tr>
+				<tr>
+					<td>Stack Overflow</td>
+					<td><a href="https://stackoverflow.com/">https://stackoverflow.com/</a></td>
+				</tr>
+				<tr>
+					<td>Reddit</td>
+					<td><a href="https://www.reddit.com/">https://www.reddit.com/</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+    <script>
+        function openTab(evt, tabName) {
+            // Declare variables
+            var i, tabcontent, tablinks;
+
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablinks"); 
+            for (i = 0; i < tablinks.length; i++) 
+            { 
+                tablinks[i].className = tablinks[i].className.replace(" active", ""); 
+            }
+            // Activate the current tab link and display the corresponding tab content
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Open the first tab by default
+        document.getElementsByClassName("tablinks")[0].click();
+    </script>
+</body> 
+</html>
